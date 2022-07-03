@@ -2,16 +2,21 @@ import React from 'react';
 import { BtnContainer, MyBtn } from './styled';
 import PropTypes from 'prop-types';
 
-function FeedbackOptions({ onLeaveFeedback, options }) {
-  const arrName = Object.keys(options);
+const btnOptions = {
+  good: 'lightgreen',
+  neutral: 'lightyellow',
+  bad: 'tomato',
+};
+const btnsName = Object.keys(btnOptions);
 
+function FeedbackOptions({ onLeaveFeedback }) {
   return (
     <BtnContainer>
-      {arrName.map(name => (
+      {btnsName.map(name => (
         <MyBtn
-          key={arrName.indexOf(name)}
+          key={btnsName.indexOf(name)}
           type="button"
-          color={options[name]}
+          color={btnOptions[name]}
           name={name}
           onClick={onLeaveFeedback}
         >
@@ -24,11 +29,6 @@ function FeedbackOptions({ onLeaveFeedback, options }) {
 
 FeedbackOptions.propTypes = {
   onLeaveFeedback: PropTypes.func.isRequired,
-  options: PropTypes.shape({
-    good: PropTypes.string.isRequired,
-    neutral: PropTypes.string.isRequired,
-    bad: PropTypes.string.isRequired,
-  }),
 };
 
 export default FeedbackOptions;
