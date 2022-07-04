@@ -16,7 +16,6 @@ export const BtnContainer = styled.div`
 `;
 
 export const MyBtn = styled.button`
-  background-color: ${props => (props.color ? props.color : 'none')};
   padding: 5px 15px;
 
   border: none;
